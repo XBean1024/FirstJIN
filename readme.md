@@ -1,11 +1,21 @@
-运行报错
+# 运行报错
+```text
+JNI DETECTED ERROR IN APPLICATION: JNI GetMethodID called with pending exception java.lang.NoSuchMethodError: no non-static method "Lcom/example/binny/firstjin/Student;.<setAge>(I)V"
+```
+### 原代码
+```
+//2 获取类信息
+    jmethodID method_init_id = e->GetMethodID(clazz, "<init>", "()V");//构造函数
+    jmethodID method_set_id = e->GetMethodID(clazz, "<setAge>", "(I)V");//set方法
+    jmethodID method_get_id = e->GetMethodID(clazz, "<getAge>", "()I");//get方法
+```
+### 修正
 ```
 //2 获取类信息
     jmethodID method_init_id = e->GetMethodID(clazz, "<init>", "()V");//构造函数
     jmethodID method_set_id = e->GetMethodID(clazz, "setAge", "(I)V");//set方法
     jmethodID method_get_id = e->GetMethodID(clazz, "getAge", "()I");//get方法
-```
- 
+``` 
 
 # 什么是signature
 
