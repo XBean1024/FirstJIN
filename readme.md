@@ -1,3 +1,12 @@
+运行报错
+```
+//2 获取类信息
+    jmethodID method_init_id = e->GetMethodID(clazz, "<init>", "()V");//构造函数
+    jmethodID method_set_id = e->GetMethodID(clazz, "setAge", "(I)V");//set方法
+    jmethodID method_get_id = e->GetMethodID(clazz, "getAge", "()I");//get方法
+```
+ 
+
 # 什么是signature
 
 Signature：签名，是java 与c/c++相互调用的时候，表示函数参数的描述符。

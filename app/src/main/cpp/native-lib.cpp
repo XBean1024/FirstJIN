@@ -12,14 +12,14 @@ Java_com_example_binny_firstjin_MainActivity_stringFromJNI(
     //1 获取Java类
     jclass clazz = e->FindClass(JNI_CLASS_PATH_1);
     //2 获取类信息
-    jmethodID jmethod_init_id = e->GetMethodID(clazz, "<init>", "()V");//构造函数
-    jmethodID jmethod_set_id = e->GetMethodID(clazz, "<setAge>", "(I)V");//set方法
-    jmethodID jmethod_get_id = e->GetMethodID(clazz, "<getAge>", "()I");//get方法
+    jmethodID method_init_id = e->GetMethodID(clazz, "<init>", "()V");//构造函数
+    jmethodID method_set_id = e->GetMethodID(clazz, "setAge", "(I)V");//set方法
+    jmethodID method_get_id = e->GetMethodID(clazz, "getAge", "()I");//get方法
     //3 创建对象
-    jobject jobject1 = e->NewObject(clazz, jmethod_init_id);
+    jobject jobject1 = e->NewObject(clazz, method_init_id);
     //4 操作对象
-    e->CallVoidMethod(jobject1, jmethod_set_id, 23);
-    int age = e->CallIntMethod(jobject1, jmethod_get_id);
+    e->CallVoidMethod(jobject1, method_set_id, 23);
+    int age = e->CallIntMethod(jobject1, method_get_id);
 
     char tmp[]={0};
     sprintf(tmp,"%d",age);
